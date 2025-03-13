@@ -103,18 +103,29 @@ export default function Todo({ title, completed, onToggle }: TodoProps) {
               Step 3: Testing Your Implementation
             </h2>
             <p className="text-gray-600 mb-4">
-              Once you've created both components, test them by:
+              Once you've created both components, test them in the practice
+              area:
             </p>
             <ol className="list-decimal list-inside space-y-2 text-gray-600">
               <li>
-                Creating a new page at{" "}
-                <code className="bg-gray-100 px-2 py-1 rounded mx-1">
-                  app/practice/page.tsx
-                </code>
+                Visit the{" "}
+                <Link
+                  href="/practice"
+                  className="text-blue-500 hover:text-blue-600"
+                >
+                  Practice Area
+                </Link>
               </li>
-              <li>Importing and using your TodoList component</li>
-              <li>Adding some sample todos to test the functionality</li>
+              <li>Switch to the "Your Components" tab</li>
+              <li>Import and use your components</li>
+              <li>Test the functionality with different scenarios</li>
             </ol>
+            <div className="mt-4 p-4 bg-yellow-50 rounded-md">
+              <p className="text-sm text-yellow-800">
+                💡 Tip: The Practice Area includes example components that you
+                can reference while building your own implementation.
+              </p>
+            </div>
           </section>
 
           {/* Navigation */}
