@@ -1,22 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Learning Project for Interns
+
+Welcome to the Next.js, React, and Tailwind CSS learning project! This interactive project is designed to help you learn modern web development through hands-on tasks and exercises.
+
+## Project Overview
+
+This project provides a series of progressive tasks that will help you learn:
+
+- Next.js 14 fundamentals and app router
+- React components and hooks
+- Tailwind CSS styling
+- Modern web development practices
+- State management
+- Form handling
+- API integration
+- Data fetching
+- Client-side vs Server-side rendering
 
 ## Getting Started
 
-First, run the development server:
+1. Clone this repository
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Run the development server:
+   ```bash
+   pnpm dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project is organized into progressive tasks, each building upon the previous ones:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Task 1: Basic Components and Styling**
+
+   - Creating React components
+   - Using Tailwind CSS
+   - Understanding component props
+
+2. **Task 2: State and Events**
+
+   - Working with React hooks
+   - Handling user interactions
+   - Managing component state
+
+3. **Task 3: Data Fetching**
+
+   - Server components
+   - API routes
+   - Data loading patterns
+
+4. **Task 4: Forms and Validation**
+
+   - Form handling
+   - Input validation
+   - Error handling
+
+5. **Task 5: Advanced Features**
+   - Authentication
+   - Route protection
+   - Advanced state management
+
+Each task comes with:
+
+- Step-by-step instructions
+- Code examples
+- Practice exercises
+- Additional resources
+
+## Learning Path
+
+Follow the tasks in order, as each builds upon the knowledge gained from previous tasks. The application itself will guide you through each task with interactive instructions and examples.
+
+Happy coding! 🚀
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
