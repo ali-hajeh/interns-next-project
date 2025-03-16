@@ -1,21 +1,35 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import Todo from "../components/Todo";
+import { useState } from 'react';
+import Link from 'next/link';
+import Todo from '../components/Todo';
+import TodoList from '../components/TodoList';
+import RegistrationForm from '../components/RegistrationForm';
 
-export default function PracticePage() {
+export default function Home() {
+  const [activeTab, setActiveTab] = useState<
+    'example' | 'your-work' | 'registration'
+  >('example');
+
   // Example todos for demonstration
   const exampleTodos = [
-    { id: 1, title: "Learn React Components", completed: false },
-    { id: 2, title: "Practice with Tailwind CSS", completed: true },
-    { id: 3, title: "Build a Todo App", completed: false },
+    { id: 1, title: 'Learn React Components', completed: false },
+    { id: 2, title: 'Practice with Tailwind CSS', completed: true },
+    { id: 3, title: 'Build a Todo App', completed: false },
   ];
 
-  const [activeTab, setActiveTab] = useState("example");
+  // Function to handle toggling a todo
+  const handleToggle = (id: number) => {
+    console.log(`Toggled todo with id: ${id}`);
+  };
+
+  // Function to handle deleting a todo
+  const handleDelete = (id: number) => {
+    console.log(`Deleted todo with id: ${id}`);
+  };
 
   return (
-    <div className="min-h-screen p-8">
+    <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
           <Link
@@ -36,31 +50,41 @@ export default function PracticePage() {
         <div className="border-b border-gray-200 mb-8">
           <nav className="flex space-x-8">
             <button
-              onClick={() => setActiveTab("example")}
+              onClick={() => setActiveTab('example')}
               className={
-                activeTab === "example"
-                  ? "py-4 px-1 border-b-2 border-blue-500 text-blue-600"
-                  : "py-4 px-1 text-gray-500 hover:text-gray-700"
+                activeTab === 'example'
+                  ? 'py-4 px-1 border-b-2 border-blue-500 text-blue-600'
+                  : 'py-4 px-1 text-gray-500 hover:text-gray-700'
               }
             >
               Example Components
             </button>
             <button
-              onClick={() => setActiveTab("your-work")}
+              onClick={() => setActiveTab('your-work')}
               className={
-                activeTab === "your-work"
-                  ? "py-4 px-1 border-b-2 border-blue-500 text-blue-600"
-                  : "py-4 px-1 text-gray-500 hover:text-gray-700"
+                activeTab === 'your-work'
+                  ? 'py-4 px-1 border-b-2 border-blue-500 text-blue-600'
+                  : 'py-4 px-1 text-gray-500 hover:text-gray-700'
               }
             >
               Your Components
+            </button>
+            <button
+              onClick={() => setActiveTab('registration')}
+              className={
+                activeTab === 'registration'
+                  ? 'py-4 px-1 border-b-2 border-blue-500 text-blue-600'
+                  : 'py-4 px-1 text-gray-500 hover:text-gray-700'
+              }
+            >
+              Registration Form
             </button>
           </nav>
         </div>
 
         {/* Content Area */}
         <div className="space-y-8">
-          {activeTab === "example" ? (
+          {activeTab === 'example' ? (
             <>
               <section>
                 <h2 className="text-xl font-semibold mb-4">
@@ -72,7 +96,8 @@ export default function PracticePage() {
                       key={todo.id}
                       title={todo.title}
                       completed={todo.completed}
-                      onToggle={() => {}}
+                      onToggle={() => handleToggle(todo.id)}
+                      onDelete={() => handleDelete(todo.id)}
                     />
                   ))}
                 </div>
@@ -90,10 +115,10 @@ export default function PracticePage() {
                 <div className="prose prose-blue">
                   <ol className="list-decimal list-inside space-y-2 text-gray-600">
                     <li>
-                      Create your components in the{" "}
+                      Create your components in the{' '}
                       <code className="bg-gray-100 px-2 py-1 rounded">
                         app/components
-                      </code>{" "}
+                      </code>{' '}
                       directory
                     </li>
                     <li>Import and use them in the "Your Components" tab</li>
@@ -103,7 +128,7 @@ export default function PracticePage() {
                 </div>
               </section>
             </>
-          ) : (
+          ) : activeTab === 'your-work' ? (
             <section>
               <h2 className="text-xl font-semibold mb-4">
                 Your Implementation
@@ -113,10 +138,7 @@ export default function PracticePage() {
                   This is where you&apos;ll import and test your own components.
                   Edit this page to add your implementations!
                 </p>
-                {/* 
-                  Add your components here! For example:
-                  <EnhancedTodoList />
-                */}
+                <TodoList />
               </div>
               <div className="mt-4 p-4 bg-blue-50 rounded-md">
                 <h3 className="font-medium text-blue-800 mb-2">Tips:</h3>
@@ -126,6 +148,13 @@ export default function PracticePage() {
                   <li>Try different screen sizes for responsive design</li>
                   <li>Check accessibility features</li>
                 </ul>
+              </div>
+            </section>
+          ) : (
+            <section>
+              <h2 className="text-xl font-semibold mb-4">Registration Form</h2>
+              <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg">
+                <RegistrationForm />
               </div>
             </section>
           )}
