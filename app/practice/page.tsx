@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Todo from "../components/Todo";
+import TodoList from "../components/TodoList";
+import RegistrationForm from "../components/RegistrationForm"; // Import the RegistrationForm
 
 export default function PracticePage() {
   // Example todos for demonstration
@@ -55,6 +57,16 @@ export default function PracticePage() {
             >
               Your Components
             </button>
+            <button
+              onClick={() => setActiveTab("registration")}
+              className={
+                activeTab === "registration"
+                  ? "py-4 px-1 border-b-2 border-blue-500 text-blue-600"
+                  : "py-4 px-1 text-gray-500 hover:text-gray-700"
+              }
+            >
+              Registration Form
+            </button>
           </nav>
         </div>
 
@@ -103,7 +115,7 @@ export default function PracticePage() {
                 </div>
               </section>
             </>
-          ) : (
+          ) : activeTab === "your-work" ? (
             <section>
               <h2 className="text-xl font-semibold mb-4">
                 Your Implementation
@@ -116,7 +128,9 @@ export default function PracticePage() {
                 {/* 
                   Add your components here! For example:
                   <EnhancedTodoList />
-                */}
+                */
+                  <TodoList />
+                }
               </div>
               <div className="mt-4 p-4 bg-blue-50 rounded-md">
                 <h3 className="font-medium text-blue-800 mb-2">Tips:</h3>
@@ -126,6 +140,19 @@ export default function PracticePage() {
                   <li>Try different screen sizes for responsive design</li>
                   <li>Check accessibility features</li>
                 </ul>
+              </div>
+            </section>
+          ) : (
+            <section>
+              <h2 className="text-xl font-semibold mb-4">Registration Form</h2>
+              <div className="p-6 bg-white rounded-lg shadow-md">
+                <RegistrationForm />
+              </div>
+              <div className="mt-4 p-4 bg-green-50 rounded-md">
+                <p className="text-sm text-green-800">
+                  This is the registration form with advanced features like
+                  real-time validation, password strength checking, and more.
+                </p>
               </div>
             </section>
           )}
