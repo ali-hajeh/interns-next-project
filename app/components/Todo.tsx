@@ -6,7 +6,7 @@ interface TodoProps {
 
 export default function Todo({ title, completed, onToggle }: TodoProps) {
   return (
-    <div className="flex items-center gap-2 p-4 border rounded-md">
+    <div className="flex items-center gap-2">
       <input
         type="checkbox"
         checked={completed}

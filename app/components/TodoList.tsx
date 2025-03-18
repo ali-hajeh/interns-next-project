@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Todo from "../components/Todo";
-import EnhancedTodoList from "../components/EnhancedTodoList"; // Import the EnhancedTodoList
-import RegistrationForm from "../components/RegistrationForm"; // Import the RegistrationForm
+import TodoList from "../components/TodoList"; // Import the TodoList component
 
 export default function PracticePage() {
   // Example todos for demonstration
@@ -18,7 +17,7 @@ export default function PracticePage() {
 
   return (
     <div className="min-h-screen p-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="mb-8">
           <Link
             href="/"
@@ -109,21 +108,9 @@ export default function PracticePage() {
               <h2 className="text-xl font-semibold mb-4">
                 Your Implementation
               </h2>
-              {/* Grid Layout for TodoList and RegistrationForm */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* TodoList */}
-                <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg">
-                  <EnhancedTodoList />
-                </div>
-
-                {/* RegistrationForm */}
-                <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-4">Registration Form</h3>
-                  <RegistrationForm />
-                </div>
+              <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg">
+                <TodoList /> {/* Add your TodoList component here */}
               </div>
-
-              {/* Tips Section */}
               <div className="mt-4 p-4 bg-blue-50 rounded-md">
                 <h3 className="font-medium text-blue-800 mb-2">Tips:</h3>
                 <ul className="list-disc list-inside text-sm text-blue-800">
